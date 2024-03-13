@@ -149,12 +149,12 @@ def fetch_result_set(query, similarity_threshold, main_url, max_items_percentage
     # Load the FAISS index for the main URL
     try:
         vdb_chunks = FAISS.load_local(
-            "index/" + get_base_url(main_url), embeddings)
+            "index/" + get_base_url(main_url), embeddings, allow_dangerous_deserialization=True)
     except:
         refresh_embeddings(main_url, max_items_percentage)
         fetch_result_set(query, similarity_threshold, main_url, max_items_percentage)
         vdb_chunks = FAISS.load_local(
-            "index/" + get_base_url(main_url), embeddings)
+            "index/" + get_base_url(main_url), embeddings, allow_dangerous_deserialization=True)
     # Perform similarity search with user's query
     results = vdb_chunks.similarity_search_with_score(query)
     matches = []
