@@ -14,7 +14,7 @@ class CustomSitemapLoader(SitemapLoader):
     
     def __init__(self, web_path, scrapping_factor: float):
          self.scrapping_factor = scrapping_factor
-         super().__init__(web_path, filter_urls = [])
+         super().__init__(web_path)
 
     def _batch_block(iterable: Iterable, size: int) -> Generator[List[dict], None, None]:
         it = iter(iterable)
