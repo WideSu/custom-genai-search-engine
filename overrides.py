@@ -2,7 +2,7 @@
 import itertools
 import re
 from typing import Any, Callable, Generator, Iterable, List, Optional
-from langchain.document_loaders.sitemap import SitemapLoader, _batch_block
+from langchain.document_loaders.sitemap import SitemapLoader
 from langchain.document_loaders.web_base import WebBaseLoader
 from langchain.schema import Document
 import asyncio
@@ -15,6 +15,11 @@ class CustomSitemapLoader(SitemapLoader):
     def __init__(self, web_path, scrapping_factor: float):
          self.scrapping_factor = scrapping_factor
          super().__init__(web_path)
+
+    def _batch_block(iterable: Iterable, size: int) -> Generator[List[dict], None, None]:
+        it = iter(iterable)
+        while item := list(itertools.islice(it, size)):
+            yield item
 
     def parse_sitemap(self, soup: Any, mode) -> List[dict]:
         """Parse sitemap xml and load into a list of dicts."""
