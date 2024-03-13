@@ -32,8 +32,8 @@ class CustomSitemapLoader(SitemapLoader):
             # Strip leading and trailing whitespace and newlines
             loc_text = loc.text.strip()
 
-            if self.allow_url_patterns and not any(
-                re.match(r, loc_text) for r in self.allow_url_patterns
+            if self.filter_urls and not any(
+                re.match(r, loc_text) for r in self.filter_urls
             ):
                 continue
 
