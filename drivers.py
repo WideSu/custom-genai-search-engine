@@ -73,7 +73,7 @@ def get_docs(url, max_items_percentage):
     error_urls = []
     scrapping_factor = float(max_items_percentage)/100.0
     # Initialize SitemapLoader with web path (URL)
-    sitemap_loader = SitemapLoader(web_path=url, scrapping_factor = scrapping_factor)
+    sitemap_loader = CustomSitemapLoader(web_path=url, scrapping_factor = scrapping_factor)
     # Continue until all URLs are parsed
     while not all_urls_parsed:
         sitemap_loader.requests_per_second = 10
