@@ -11,7 +11,7 @@ from langchain.docstore.document import Document
 from langchain.llms import VertexAI
 from langchain import PromptTemplate
 import streamlit as st
-from langchain_community.vectorstores.faiss import FAISS
+from langchain import FAISS
 from langchain.document_loaders.sitemap import SitemapLoader
 from urllib.parse import urlparse
 from config import *
