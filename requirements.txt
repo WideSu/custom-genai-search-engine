@@ -2,8 +2,8 @@ streamlit==1.18.0
 google-cloud-aiplatform==1.26.0
 asyncio==3.4.3
 asyncpg==0.27.0 
-numpy==1.22.4 
-pandas==1.5.3
+numpy 
+pandas
 pgvector==0.1.8
 langchain==0.0.196 
 transformers==4.30.1
