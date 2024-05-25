@@ -233,7 +233,7 @@ def run_chain(query, matches):
 def main():
     # Streamlit app title and expander for defining or updating the knowledge base
     input_url = st.sidebar.text_input("Enter the Sitemap URL of the knowledge base")
-    st.title("Custom Search Engine")
+    st.title("Rockwell Automation AI Chatbot.")
     similarity_threshold = st.sidebar.slider("Enter the similarity threshold (%)",min_value=0, max_value=100,value=50)
     similarity_threshold/=100
     max_items_percentage = st.sidebar.select_slider("Percentage of website to scrape",options=[1,10,25,50,75,100],value=10)
